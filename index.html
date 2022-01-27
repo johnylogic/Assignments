@@ -25,9 +25,9 @@
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <div class="grid grid-cols-6 gap-6">
 
-                                <div class="col-span-6 sm:col-span-6">
-                                    <label class="block text-sm font-medium text-gray-700" style="color: blue;">
-                                        Photo
+                                <div class="col-span-6 sm:col-span-6 px-3">
+                                    <label class="block text-sm font-medium text-blue-700">
+                                        Profile Photo
                                     </label>
                                     <div class="mt-1 flex items-center">
                                         <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100"  style=" border: 2px solid blue">
@@ -50,9 +50,9 @@
                                     <label for="first-name" class="block text-sm font-medium text-blue-700">
                                         First name</label>
                                     <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                                        class="mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-black-300 rounded-md"
+                                        class=" mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-black-300 rounded-md"
                                         id="text1" onkeypress="return IsAlpha(event);" ondrop="return false;" onpaste=" return false;"
-                                        style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green">
+                                        style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green" required>
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
@@ -93,7 +93,7 @@
                                         onpaste="return false;"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
                                         pattern="[0-9]{10}" maxlength="12" title="Ten digits code"
-                                        style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green">
+                                        style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green" required>
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
@@ -112,7 +112,7 @@
                                         Email address</label>
                                     <input type="email" name="email-address" id="email-address" autocomplete="email" placeholder="ex:name@example.com"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
-                                        style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green">
+                                        style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green" required>
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3"></div>
@@ -208,5 +208,58 @@
             </div>
         </div>
     </div>
+
+<span id="error" style="color: Red; display: none">* Input text (A - Z)</span>
+<script type="text/javascript">
+    var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+    function IsAlpha(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 65 && keyCode <= 90) || specialKeys.indexOf(keyCode) != -1);
+        document.getElementById("error").style.display = ret ? "none" : "inline";
+        return ret;
+    }
+
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+        document.getElementById("error").style.display = ret ? "none" : "inline";
+        return ret;
+    }
+
+    function checkPassword(str)
+    {
+        var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+        return re.test(str);
+    }
+    
+    function checkForm(form)
+    {
+        if(form.username.value == "") {
+        alert("Error: Username cannot be blank!");
+        form.username.focus();
+        return false;
+        }
+        re = /^\w+$/;
+        if(!re.test(form.username.value)) {
+        alert("Error: Username must contain only letters, numbers and underscores!");
+        form.username.focus();
+        return false;
+        }
+        if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+        if(!checkPassword(form.pwd1.value)) {
+            alert("The password you have entered is not valid!");
+            form.pwd1.focus();
+            return false;
+        }
+        } else {
+        alert("Error: Please check that you've entered and confirmed your password!");
+        form.pwd1.focus();
+        return false;
+        }
+        return true;
+    }
+</script>
+
 </body>
 </html>
