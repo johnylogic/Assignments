@@ -226,6 +226,9 @@
                                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
+                            <button class="btn btn-primary" type="button" onclick="addCookie()">Add Cookie</button>
+                            <button class="btn btn-primary" type="button" onclick="readCookie()">Read Cookie</button>
+                            <button class="btn btn-primary" type="button" onclick="removeCookie()">Remove Cookie</button>
                         </div>
                     </div>
                 </form>
@@ -254,6 +257,77 @@
             document.getElementById("backgcolor").value = a[1];
             document.bgColor=a[1];
         }
+    }
+
+    //for addding cookies
+    function addCookie()
+    {
+        var fname = document.getElementById("first-name").value
+        var lname = document.getElementById("last-name").value
+        var phno = document.getElementById("phone-number").value
+        var email = document.getElementById("email-address").value
+
+        if((fname.trim() != "")  && (phno.trim() != ""))
+        {
+            document.cookie = "FName=" + fname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
+            document.cookie = "Phone-Number=" + phno + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
+            document.cookie = "LName=" + Lname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
+            document.cookie = "Email=" + email + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
+
+            localStorage.setItem('FName', fname)
+            localStorage.setItem('LName', lname)
+            localStorage.setItem('Phone-Number', phno)
+            localStorage.setItem('Email', email)
+
+            sessionStorage.setItem('FName', fname)
+            sessionStorage.setItem('LName', lname)
+            sessionStorage.setItem('Phone-Number', phno)
+            sessionStorage.setItem('Email', email)
+
+            alert("Cookies have been Added")
+            window.location.reload()
+        }
+        else
+        {
+            alert("Form Incomplete")
+        }
+    }
+
+    //For reading cookie
+    function readCookie()
+    {
+        var i
+        var message = ""
+        var list = document.cookie.split(';')
+        for(i = 0; i < list.length; i++)
+        {
+            message += list[i].split('=')[0] + ": " + list[i].split('=')[1] + "\n"
+        }
+        alert(message)
+    }
+
+    //For Removing cookies
+    function removeCookie()
+    {
+        localStorage.removeItem('FName')
+        localStorage.removeItem('LName')
+        localStorage.removeItem('Phone-Number')
+        localStorage.removeItem('color')
+        localStorage.removeItem('email')
+
+        localStorage.removeItem('FName')
+        localStorage.removeItem('LName')
+        sessionStorage.removeItem('Phone-Number')
+        sessionStorage.removeItem('color')
+        sessionStorage.removeItem('email')
+
+        document.cookie = "FName=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
+        document.cookie = "Phone-Number=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
+        document.cookie = "color=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
+        document.cookie = "email=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
+    
+        alert("Cookies cleared!!")
+        window.location.reload()
     }
 
     // Form validation code
