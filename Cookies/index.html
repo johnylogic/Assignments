@@ -17,7 +17,8 @@
             <div class="mb-3 border-t border-black-200"></div>
 
             <div class="ml-25">
-            <select id="backgcolor" onchange="changeBgColor()" class="mr-10 block py-2 px-3 border-green-800 bg-white rounded-md shadow-sm" >
+            <select id="backgcolor" onchange="changeBgColor()" class="mr-10 block py-2 px-3 border-green-800 bg-white rounded-md shadow-sm
+            inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >
                 <option value="white">white</option>
                 <option value="lightblue">Blue</option>
                 <option value="lightcyan">Cyan</option>
@@ -44,7 +45,7 @@
             <div class="mx-5 md:mt-0 md:col-span-2">
                 <form action=""  onsubmit="return checkForm(this);">
                     <div class="p-3 mb-5 bg-light rounded" style=" background-color: #ffffff; border-radius: 40px;">
-                        <div class="px-4 py-5 bg-white sm:p-6">
+                        <div class="px-4 py-5 bg-white sm:p-6"> 
                             <div class="grid grid-cols-6 gap-6">
 
                                 <div class="col-span-6 sm:col-span-6 px-3">
@@ -69,9 +70,9 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="first-name" class="block text-lg font-medium text-blue-700">
+                                    <label for="firstname" class="block text-lg font-medium text-blue-700">
                                         First name</label>
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                    <input type="text" name="firstname" id="firstname" autocomplete="given-name"
                                         class=" mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-black-300 rounded-md"
                                         id="text1" onkeypress="return IsAlpha(event);" ondrop="return false;" onpaste=" return false;"
                                         style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green" required>
@@ -88,9 +89,9 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="last-name" class="block text-lg font-medium text-blue-700">
+                                    <label for="lastname" class="block text-lg font-medium text-blue-700">
                                         Last name</label>
-                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+                                    <input type="text" name="lastname" id="lastname" autocomplete="family-name"
                                         class="mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
                                         id="text1" onkeypress="return IsAlpha(event);" ondrop="return false;"
                                         onpaste="return false;"
@@ -108,9 +109,9 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-2">
-                                    <label for="phone-number" class="block text-lg font-medium text-blue-700">
+                                    <label for="phonenumber" class="block text-lg font-medium text-blue-700">
                                         Phone No</label>
-                                    <input type="tel" name="phone-number" id="phone-number" autocomplete="phone-number"
+                                    <input type="tel" name="phonenumber" id="phonenumber" autocomplete="phone-number"
                                         onkeypress="return IsNumeric(event);" ondrop="return false;"
                                         onpaste="return false;"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
@@ -130,9 +131,9 @@
                                 </div>
 
                                 <div class="col-span-6 sm:col-span-3">
-                                    <label for="email-address" class="block text-lg font-medium text-blue-700">
+                                    <label for="emailaddress" class="block text-lg font-medium text-blue-700">
                                         Email address</label>
-                                    <input type="email" name="email-address" id="email-address" autocomplete="email" placeholder="ex:name@example.com"
+                                    <input type="email" name="emailaddress" id="emailaddress" autocomplete="email" placeholder="ex:name@example.com"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
                                         style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green" required>
                                 </div>
@@ -224,11 +225,16 @@
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <button type="submit"
                                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Save
-                            </button>
-                            <button class="btn btn-primary" type="button" onclick="addCookie()">Add Cookie</button>
-                            <button class="btn btn-primary" type="button" onclick="readCookie()">Read Cookie</button>
-                            <button class="btn btn-primary" type="button" onclick="removeCookie()">Remove Cookie</button>
+                                Save</button>
+                            <button type="button" onclick="addCookie()"
+                                class="btn btn-primary inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >
+                                Add Cookie</button>
+                            <button type="button" onclick="readCookie()" 
+                                class="btn btn-primary inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >
+                                Read Cookie</button>
+                            <button type="button" onclick="removeCookie()"
+                                class="btn btn-primary inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >
+                                Remove Cookie</button>
                         </div>
                     </div>
                 </form>
@@ -243,7 +249,7 @@
     function changeBgColor()
     {
         var value = document.getElementById("backgcolor").value;
-        if(value!="Select Color")
+        if(value!="WHITE")
         {
             document.bgColor=value;
             document.cookie="color="+value;
@@ -262,28 +268,28 @@
     //for addding cookies
     function addCookie()
     {
-        var fname = document.getElementById("first-name").value
-        var lname = document.getElementById("last-name").value
-        var phno = document.getElementById("phone-number").value
-        var email = document.getElementById("email-address").value
+        var fname = document.getElementById("firstname").value;
+        var lname = document.getElementById("lastname").value;
+        var phno = document.getElementById("phonenumber").value;
+        var email = document.getElementById("emailaddress").value;
 
         if((fname.trim() != "")  && (phno.trim() != ""))
         {
-            document.cookie = "FName=" + fname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
-            document.cookie = "Phone-Number=" + phno + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
-            document.cookie = "LName=" + Lname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
-            document.cookie = "Email=" + email + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;"
-
-            localStorage.setItem('FName', fname)
-            localStorage.setItem('LName', lname)
-            localStorage.setItem('Phone-Number', phno)
-            localStorage.setItem('Email', email)
-
-            sessionStorage.setItem('FName', fname)
-            sessionStorage.setItem('LName', lname)
-            sessionStorage.setItem('Phone-Number', phno)
-            sessionStorage.setItem('Email', email)
-
+            document.cookie = "FName=" + fname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
+            document.cookie = "Phone-Number=" + phno + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
+            document.cookie = "LName=" + lname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
+            document.cookie = "Email=" + email + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
+            alert("1")
+            localStorage.setItem('FName', fname);
+            localStorage.setItem('LName', lname);
+            localStorage.setItem('Phone-Number', phno);
+            localStorage.setItem('Email', email);
+            alert("2")
+            sessionStorage.setItem('FName', fname);
+            sessionStorage.setItem('LName', lname);
+            sessionStorage.setItem('Phone-Number', phno);
+            sessionStorage.setItem('Email', email);
+            alert("3")
             alert("Cookies have been Added")
             window.location.reload()
         }
