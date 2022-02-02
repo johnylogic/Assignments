@@ -11,15 +11,14 @@
     
 </head>
 
-<body>
+<body onload="setBgColor()">
     <div class="hidden sm:block" aria-hidden="true" style="padding: 1rem;">
         <div class="py-0">
             <div class="mb-3 border-t border-black-200"></div>
 
             <div class="ml-25">
-            <select id="backgcolor" onchange="changeBgColor()" class="mr-10 block py-2 px-3 border-green-800 rounded-md shadow-sm" >
+            <select id="backgcolor" name="backgcolor" onchange="changeColor()" class="mr-10 block py-2 px-3 border-green-800 rounded-md shadow-sm" >
                 <option value="Select Colour">Select Colour</option>
-                <option value="white">white</option>
                 <option value="lightblue">Blue</option>
                 <option value="lightcyan">Cyan</option>
                 <option value="lightgreen">Green</option>
@@ -247,49 +246,74 @@
 <script type="text/javascript">
     
     //cookies for background colour
-    function changeBgColor()
+    // function changeBgColor()
+    // {
+    //     var value = document.getElementById("backgcolor").value;
+    //     if(value!="Select Colour")
+    //     {
+    //         document.bgColor=value;
+    //         document.cookie="color="+value;
+    //     }
+    // }
+    // window.onload = function()
+    // {
+    //     if(document.cookie.length != 0)
+    //     {
+    //         var a = document.cookie.split("=");
+    //         document.getElementById("backgcolor").value = a[1];
+    //         document.bgColor=a[1];
+    //     }
+    // }
+
+    function setBgColor()
     {
-        var value = document.getElementById("backgcolor").value;
-        if(value!="Select Colour")
+        var i
+        list = document.cookie.split('; ')
+        for(i = 0; i < list.length; i++)
         {
-            document.bgColor=value;
-            document.cookie="color="+value;
+            if(list[i].split('=')[0] == 'color')
+            {
+                document.body.style.backgroundColor = list[i].split('=')[1]
+                document.getElementById("backgcolor").value = list[i].split('=')[1]
+            }
         }
     }
-    window.onload = function()
+
+    function changeColor()
     {
-        if(document.cookie.length != 0)
-        {
-            var a = document.cookie.split("=");
-            document.getElementById("backgcolor").value = a[1];
-            document.bgColor=a[1];
-        }
+        var color = document.getElementById("backgcolor").value
+        document.cookie = "color=" + color + ", expires=Sun, 30 Jan 2022 00:00:00 UTC;";
+        localStorage.setItem('color', color)
+        sessionStorage.setItem('color', color)
+        document.body.style.backgroundColor = color
     }
+
 
     //for addding cookies
     function addCookie()
     {
-        var fname = document.getElementById("firstname").value;
-        var lname = document.getElementById("lastname").value;
+        // var fname = document.getElementById("firstname").value;
+        // var lname = document.getElementById("lastname").value;
+        // var email = document.getElementById("emailaddress").value;
         var phno = document.getElementById("phonenumber").value;
-        var email = document.getElementById("emailaddress").value;
 
-        if((fname.trim() != "")  && (phno.trim() != ""))
+        // if((fname.trim() != "")  && (phno.trim() != ""))
+        if(phno.trim() != "")
         {
-            document.cookie = "FName=" + fname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
-            document.cookie = "LName=" + lname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            // document.cookie = "FName=" + fname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            // document.cookie = "LName=" + lname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            // document.cookie = "Email=" + email + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
             document.cookie = "Phone-Number=" + phno + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
-            document.cookie = "Email=" + email + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
             
-            localStorage.setItem('FName', fname);
-            localStorage.setItem('LName', lname);
+            // localStorage.setItem('FName', fname);
+            // localStorage.setItem('LName', lname);
+            // localStorage.setItem('Email', email);
             localStorage.setItem('Phone-Number', phno);
-            localStorage.setItem('Email', email);
             
-            sessionStorage.setItem('FName', fname);
-            sessionStorage.setItem('LName', lname);
+            // sessionStorage.setItem('FName', fname);
+            // sessionStorage.setItem('LName', lname);
+            // sessionStorage.setItem('Email', email);
             sessionStorage.setItem('Phone-Number', phno);
-            sessionStorage.setItem('Email', email);
             
             alert("Cookies have been Added")
             window.location.reload()
