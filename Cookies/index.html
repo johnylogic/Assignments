@@ -290,27 +290,26 @@
     //for addding cookies
     function addCookie()
     {
-        // var fname = document.getElementById("firstname").value;
-        // var lname = document.getElementById("lastname").value;
-        // var email = document.getElementById("emailaddress").value;
+        var fname = document.getElementById("firstname").value;
+        var lname = document.getElementById("lastname").value;
+        var email = document.getElementById("emailaddress").value;
         var phno = document.getElementById("phonenumber").value;
 
-        // if((fname.trim() != "")  && (phno.trim() != ""))
-        if(phno.trim() != "")
+        if((fname.trim() != "")  && (phno.trim() != ""))
         {
-            // document.cookie = "FName=" + fname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
-            // document.cookie = "LName=" + lname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
-            // document.cookie = "Email=" + email + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            document.cookie = "FName=" + fname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            document.cookie = "LName=" + lname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            document.cookie = "Email=" + email + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
             document.cookie = "Phone-Number=" + phno + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
             
-            // localStorage.setItem('FName', fname);
-            // localStorage.setItem('LName', lname);
-            // localStorage.setItem('Email', email);
+            localStorage.setItem('FName', fname);
+            localStorage.setItem('LName', lname);
+            localStorage.setItem('Email', email);
             localStorage.setItem('Phone-Number', phno);
             
-            // sessionStorage.setItem('FName', fname);
-            // sessionStorage.setItem('LName', lname);
-            // sessionStorage.setItem('Email', email);
+            sessionStorage.setItem('FName', fname);
+            sessionStorage.setItem('LName', lname);
+            sessionStorage.setItem('Email', email);
             sessionStorage.setItem('Phone-Number', phno);
             
             alert("Cookies have been Added")
