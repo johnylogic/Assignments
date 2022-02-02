@@ -17,8 +17,8 @@
             <div class="mb-3 border-t border-black-200"></div>
 
             <div class="ml-25">
-            <select id="backgcolor" onchange="changeBgColor()" class="mr-10 block py-2 px-3 border-green-800 bg-white rounded-md shadow-sm
-            inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >
+            <select id="backgcolor" onchange="changeBgColor()" class="mr-10 block py-2 px-3 border-green-800 rounded-md shadow-sm" >
+                <option value="Select Colour">Select Colour</option>
                 <option value="white">white</option>
                 <option value="lightblue">Blue</option>
                 <option value="lightcyan">Cyan</option>
@@ -145,7 +145,7 @@
                                         Password</label>
                                     <input type="password" name="pwd1" id="password"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
-                                        required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="form.pwd2.pattern = RegExp.escape(this.value);"
+                                        required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                         style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green">
                                 </div>
                                 
@@ -154,6 +154,7 @@
                                     <label for="password" class="block text-lg font-medium text-blue-700">
                                         Confirm Password</label>
                                     <input type="password" name="pwd2" id="password"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  onchange="form.pwd1.pattern = this.value;"
                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-lg sm:text-sm border-gray-300 rounded-md"
                                         style="height: 20px; font-size: medium; padding: 20px 20px; border: 2px solid green">
                                 </div>
@@ -249,7 +250,7 @@
     function changeBgColor()
     {
         var value = document.getElementById("backgcolor").value;
-        if(value!="WHITE")
+        if(value!="Select Colour")
         {
             document.bgColor=value;
             document.cookie="color="+value;
@@ -275,21 +276,21 @@
 
         if((fname.trim() != "")  && (phno.trim() != ""))
         {
-            document.cookie = "FName=" + fname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
-            document.cookie = "Phone-Number=" + phno + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
-            document.cookie = "LName=" + lname + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
-            document.cookie = "Email=" + email + ";expires=Sun, 30 Jan 2022 00:00:00 UTC;";
-            alert("1")
+            document.cookie = "FName=" + fname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            document.cookie = "LName=" + lname + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            document.cookie = "Phone-Number=" + phno + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            document.cookie = "Email=" + email + ",expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+            
             localStorage.setItem('FName', fname);
             localStorage.setItem('LName', lname);
             localStorage.setItem('Phone-Number', phno);
             localStorage.setItem('Email', email);
-            alert("2")
+            
             sessionStorage.setItem('FName', fname);
             sessionStorage.setItem('LName', lname);
             sessionStorage.setItem('Phone-Number', phno);
             sessionStorage.setItem('Email', email);
-            alert("3")
+            
             alert("Cookies have been Added")
             window.location.reload()
         }
@@ -327,10 +328,10 @@
         sessionStorage.removeItem('color')
         sessionStorage.removeItem('email')
 
-        document.cookie = "FName=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
-        document.cookie = "Phone-Number=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
-        document.cookie = "color=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
-        document.cookie = "email=;expires=Sun, 30 Jan 2021 00:00:00 UTC;"
+        document.cookie = "FName=,expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+        document.cookie = "Phone-Number=,expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+        document.cookie = "color=,expires=Mon, 7 Feb 2022 00:00:00 UTC;";
+        document.cookie = "email=,expires=Mon, 7 Feb 2022 00:00:00 UTC;";
     
         alert("Cookies cleared!!")
         window.location.reload()
@@ -339,6 +340,8 @@
     // Form validation code
     var specialKeys = new Array();
     specialKeys.push(8); //Backspace
+
+
 
     function IsAlpha(e) {
         var keyCode = e.which ? e.which : e.keyCode
