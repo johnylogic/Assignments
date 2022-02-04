@@ -16,14 +16,15 @@
         
             <div class="col-span-3" style="color: rgb(0, 0, 0);  border-radius: 30px;">
                 <h2>Rows to Display: <input type="number" step="1" min="0" max="16" ng-model="rowlimit" /><br><br>
-                    Search: <input type="text" placeholder="Global Search" ng-model="search"><br><br></h2>
+                    Search: <input type="text" placeholder="Global Search" ng-model="search"><br><br>
+                    Filter Salary: <input type="text" placeholder="Salary filter in rupees" ng-model="salfil"></h2>
 
             </div>
             <center>
-            <table cellpadding="10" cellspacing="5" border="5"
+            <table cellpadding="6" cellspacing="3" border="5"
                 style="background-color:lightyellow; border-color: violet;">
                 <tr style="background-color: rgb(27, 79, 175); color: cornsilk; ">
-                    <th>ID
+                    <th cellspacing="1">ID
                         <br>
                         <input type="text" ng-model="search.ID" placeholder="Search Id...">
                     </th>
@@ -47,20 +48,25 @@
                         <br>
                         <input type="text" ng-model="search.Phone" placeholder="Search Phone number...">
                     </th>
-                    <th>Salary
+                    <th>Salary In Dollars
+                        <br>
+                        <input type="text" ng-model="search.Salary" placeholder="Search Salary...">
+                    </th>
+                    <th>Salary In Rupees
                         <br>
                         <input type="text" ng-model="search.Salary" placeholder="Search Salary...">
                     </th>
                 </tr>
-                <tr ng-repeat="item in entry|filter:search|orderBy:'ID'|limitTo:rowlimit"
+                <tr ng-repeat="item in entry|filter:search|orderBy:'ID'|limitTo:rowlimit |salaryGreaterThan:salfil"
                     style="color: rgb(0, 0, 0) ; background-color:rgb(255, 255, 255); text-align: center;">
                     <td>{{item.ID}}</td>
                     <td>{{item.Name|uppercase}}</td>
-                    <td>{{item.Designation}}</td>
+                    <td>{{item.Designation|toUpperCase}}</td>
                     <td>{{item.Totalposts}}</td>
                     <td>{{item.Address|lowercase}}</td>
                     <td>{{item.Phone}}</td>
-                    <td>{{item.Salary|currency}}</td>
+                    <td>{{item.Salary|americanConvertion |currency}}</td>
+                    <td>Rs. {{item.Salary}}</td>
                 </tr>
             </table>
         </center>
