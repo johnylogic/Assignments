@@ -1,12 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="sample">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Angular JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="test.js"></script>
 </head>
-<body>
-    
+
+<body ng-controller="myctrl" style="">
+    <div>
+        
+            <div class="col-span-3" style="color: rgb(0, 0, 0);  border-radius: 30px;">
+                <h2>Rows to Display: <input type="number" step="1" min="0" max="16" ng-model="rowlimit" /><br><br>
+                    Search: <input type="text" placeholder="Global Search" ng-model="search"><br><br></h2>
+
+            </div>
+            <center>
+            <table cellpadding="10" cellspacing="5" border="5"
+                style="background-color:lightyellow; border-color: violet;">
+                <tr style="background-color: rgb(27, 79, 175); color: cornsilk; ">
+                    <th>ID
+                        <br>
+                        <input type="text" ng-model="search.ID" placeholder="Search Id...">
+                    </th>
+                    <th>Name
+                        <br>
+                        <input type="text" ng-model="search.Name" placeholder="Search Name...">
+                    </th>
+                    <th>Designation
+                        <br>
+                        <input type="text" ng-model="search.Designation" placeholder="Search Designation...">
+                    </th>
+                    <th>Total Posts
+                        <br>
+                        <input type="text" ng-model="search.Totalposts" placeholder="No. of Posts...">
+                    </th>
+                    <th>Address
+                        <br>
+                        <input type="text" ng-model="search.Address" placeholder="Search Address...">
+                    </th>
+                    <th>Phone
+                        <br>
+                        <input type="text" ng-model="search.Phone" placeholder="Search Phone number...">
+                    </th>
+                    <th>Salary
+                        <br>
+                        <input type="text" ng-model="search.Salary" placeholder="Search Salary...">
+                    </th>
+                </tr>
+                <tr ng-repeat="item in entry|filter:search|orderBy:'ID'|limitTo:rowlimit"
+                    style="color: rgb(0, 0, 0) ; background-color:rgb(255, 255, 255); text-align: center;">
+                    <td>{{item.ID}}</td>
+                    <td>{{item.Name|uppercase}}</td>
+                    <td>{{item.Designation}}</td>
+                    <td>{{item.Totalposts}}</td>
+                    <td>{{item.Address|lowercase}}</td>
+                    <td>{{item.Phone}}</td>
+                    <td>{{item.Salary|currency}}</td>
+                </tr>
+            </table>
+        </center>
+    </div>
 </body>
+
 </html>

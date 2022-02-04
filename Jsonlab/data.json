@@ -1,0 +1,17 @@
+{"data":[
+    {"ID":1, "Name":"Naveen Konchu", "Designation":"Advocate","Totalposts":12, "Address": "Addresslane1", "Phone": 9234776512, "Salary": 18000},
+    {"ID":2, "Name":"Joseph Iype", "Designation":"SDE","Totalposts":7,  "Address": "Addresslane2", "Phone": 9877530087, "Salary": 80000},
+    {"ID":3, "Name":"Rethic Jiji", "Designation":"Advocate", "Totalposts":10, "Address": "Addresslane3", "Phone": 9722465589, "Salary": 45000},
+    {"ID":4, "Name":"Ricky Jay", "Designation":"Student", "Totalposts":4,  "Address": "Addresslane4", "Phone": 9145667822, "Salary": 0},
+    {"ID":5, "Name":"Abhishek Thomas", "Designation":"Doctor", "Totalposts":6,  "Address": "Addresslane5", "Phone": 9066775422, "Salary": 75000},
+    {"ID":6, "Name":"Elsa Baby", "Designation":"Engineer", "Totalposts":8,  "Address": "Addresslane6", "Phone": 9122345555, "Salary": 90000},
+    {"ID":7, "Name":"Johns Baby", "Designation":"Cloud Engineer", "Totalposts": 8,  "Address": "Addresslane7", "Phone": 9847334322, "Salary": 87000},
+    {"ID":8, "Name":"Aleena Mary", "Designation":"DevOps", "Totalposts": 6,  "Address": "Addresslane8", "Phone": 9745653314, "Salary":36000 },  
+    {"ID":9, "Name":"Mishel Mary", "Designation":"Nurse", "Totalposts": 0,  "Address": "Addresslane9", "Phone": 8281760314, "Salary":40000 }, 
+    {"ID":10, "Name":"Isabel Rose", "Designation":"Nurse", "Totalposts": 0,  "Address": "Addresslane10", "Phone": 8281459634, "Salary":37000 },
+    {"ID":11, "Name":"Athira TP", "Designation":"SDE", "Totalposts": 4,  "Address": "Addresslane11", "Phone":864794425 , "Salary": 56000},
+    {"ID":12, "Name":"Raynould", "Designation":"Advocate", "Totalposts": 15,  "Address": "Addresslane12", "Phone": 8692117526, "Salary": 48000},
+    {"ID":13, "Name":"Karthik Krishna", "Designation":"Advocate", "Totalposts": 7,  "Address": "Addresslane13", "Phone":7025302314 , "Salary":52000 },
+    {"ID":14, "Name":"Adith AV", "Designation":"Professor", "Totalposts": 1,  "Address": "Addresslane14", "Phone": 8682147756, "Salary": 65000},
+    {"ID":15, "Name":"Suraj K", "Designation":"Student", "Totalposts": 3,  "Address": "Addresslane15", "Phone": 8632147568, "Salary":0 }
+]}
