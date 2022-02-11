@@ -1,12 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html ng-app="myApp">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
 </head>
+
+<style>
+  .menu a {
+    float: left;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .menu {
+    position: sticky;
+    top: 0;
+    background-color: blue;
+    padding: 10px 0px 10px 0px;
+    color: white;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .menu a:hover {
+    background-color: rgb(0, 0, 0);
+  }
+
+  body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: rgb(2, 90, 41);
+  }
+
+  table {
+    width: 50%;
+    margin-left: 15px;
+    vertical-align: middle;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding-left: 8px;
+  }
+
+  th {
+    background-color: #000000;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  h2 {
+    margin-left: 15px;
+  }
+
+  p {
+    margin-left: 15px;
+  }
+
+  input {
+    margin-left: 10px;
+  }
+
+  h1 {
+    text-align: center;
+    color: black;
+  }
+</style>
+
+
+
 <body>
-    
+
+  <div class="menu">
+    <a href="#/">Home Page</a>
+    <a href="#/database">Database</a>
+    <a href="#/databasewithsearch">Search User</a>
+  </div>
+  <br>
+  <br>
+
+
+  <script type="text/ng-template" id="page1.html">
+<h1>Discussion Cube</h1>
+<h3>{{message}}</h3>
+<p ng-show="person">Hello {{person.first}} {{person.last}}</p>
+</script>
+
+
+
+  <script type="text/ng-template" id="page2.html">
+<h1>Active Users Data</h1>
+<div>
+  </div>
+  <div ng-controller="SecondController">
+    <form name="commonForm">
+      <table class="table">
+        <tr>
+          <th> ID </th>
+          <th> Name </th>
+          <th> Designation </th>
+          <th> Total Posts </th>
+          <th> Address </th>
+          <th> Phone </th>
+          <th> Salary </th>
+        </tr>
+        <tr ng-repeat="user in userData | filter : test">
+          <td> {{user.ID}}</td>
+          <td> {{user.Name}}</td>
+          <td> {{user.Designation | lowercase}}</td>
+          <td> {{user.Totalposts }}</td>
+          <td> {{user.Address}}</td>
+          <td> {{user.Phone}}</td>
+          <td> {{user.Salary}}</td>
+        </tr>
+      </table>
+      <br>
+    </form>
+  </div>
+</script>
+
+
+  <script type="text/ng-template" id="page3.html">
+<h1>Search User Details From Database</h1>
+<div>
+    <h2>Active Users Data</h2>
+  </div>
+  <div ng-controller="ThirdController">
+    <p>Search:<input type="text" ng-model="test"></p>
+    <form name="commonForm">
+      <table class="table">
+        <tr>
+          <th> ID </th>
+          <th> Name </th>
+          <th> Designation </th>
+          <th> Total Posts </th>
+          <th> Address </th>
+          <th> Phone </th>
+          <th> Salary </th>
+        </tr>
+        <tr ng-repeat="user in userData | filter : test">
+          <td> {{user.ID}}</td>
+          <td> {{user.Name}}</td>
+          <td> {{user.Designation | lowercase}}</td>
+          <td> {{user.Totalposts }}</td>
+          <td> {{user.Address}}</td>
+          <td> {{user.Phone}}</td>
+          <td> {{user.Salary}}</td>
+        </tr>
+      </table>
+      <br>
+    </form>
+  </div>
+</script>
+
+  <div ng-view></div>
+  <script src="app.js"></script>
 </body>
+
 </html>
