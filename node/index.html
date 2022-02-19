@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myapp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
     <title>Document</title>
+    <script src="3client.js"></script>
 </head>
-<body>
+<body ng-controller="myctrl">
+    <div>
+        <input type=""
+    <div>
+        <table border="2px">
+            <tr>
+            <th>Answer ID</th>
+            <th>Answer</th>
+            <th>Time Stamp</th>
+            <th>upvote</th>
+            <th>downvote</th>
+            <th>Question ID</th>
+            <th>User ID</th>
+        </tr>
+            <tr ng-repeat="item in names">
+                <td>{{item.aid}}</td>
+                <td>{{item.atext}}</td>
+                <td>{{item.created_on}}</td>
+                <td>{{item.upvote}}</td>
+                <td>{{item.downvote}}</td>
+                <td>{{item.qid}}</td>
+                <td>{{item.uid}}</td>
+            </tr>
+        </table>
+    </div>
+    </div>
     
 </body>
 </html>
